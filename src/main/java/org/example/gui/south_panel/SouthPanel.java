@@ -61,10 +61,55 @@ public class SouthPanel extends JPanel {
         this.add(deleteButton);
         this.add(labelOption);
     }
-
+/*
     private void comboBoxShapeSetup(){
         String[] shapes = new String[] {"Tree", "House", "Turtle", "Star", "Circle", "Squer", "Hourglass"};
         comboBoxShapes = new JComboBox<>(shapes);
+        comboBoxShapes.setSelectedIndex(4);
+    }
+*/
+    private void comboBoxShapeSetup(){
+        ImageIcon circleIcon = new ImageIcon(getClass().getResource("/icons/shapes/circle.png"));
+        circleIcon.setDescription("Circle");
+
+        ImageIcon hourglassIcon = new ImageIcon(getClass().getResource("/icons/shapes/hourglass.png"));
+        hourglassIcon.setDescription("Hourglass");
+
+        ImageIcon houseIcon = new ImageIcon(getClass().getResource("/icons/shapes/house.png"));
+        houseIcon.setDescription("House");
+
+        ImageIcon squareIcon = new ImageIcon(getClass().getResource("/icons/shapes/square.png"));
+        squareIcon.setDescription("Square");
+
+        ImageIcon starIcon = new ImageIcon(getClass().getResource("/icons/shapes/star.png"));
+        starIcon.setDescription("Star");
+
+        ImageIcon treeIcon = new ImageIcon(getClass().getResource("/icons/shapes/tree.png"));
+        treeIcon.setDescription("Tree");
+
+        ImageIcon turtleIcon = new ImageIcon(getClass().getResource("/icons/shapes/turtle.png"));
+        turtleIcon.setDescription("Turtle");
+
+        ImageIcon[] shapesIcons = {
+                circleIcon,
+                hourglassIcon,
+                houseIcon,
+                squareIcon,
+                starIcon,
+                treeIcon,
+                turtleIcon
+        };
+
+        comboBoxShapes = new JComboBox<>(shapesIcons);
+        comboBoxShapes.setRenderer(new DefaultListCellRenderer(){
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                label.setIcon((Icon) value);
+                label.setText("");
+                return label;
+            }
+        });
         comboBoxShapes.setSelectedIndex(4);
     }
 

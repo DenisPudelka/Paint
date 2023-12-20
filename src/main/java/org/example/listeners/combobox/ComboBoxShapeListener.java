@@ -6,6 +6,7 @@ import org.example.models.abstractClasses.GeometryShape;
 import org.example.models.enums.Shapes;
 import org.example.models.layers.Layer;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 public class ComboBoxShapeListener extends GeneralEventListener {
@@ -26,46 +27,54 @@ public class ComboBoxShapeListener extends GeneralEventListener {
     }
 
     private Shapes getShape(Object shape){
-        String pickedShape = ((String) shape).toUpperCase();
-        switch (pickedShape){
-            case "HOURGLASS":
-                return Shapes.HOURGLASS;
-            case "STAR":
-                return Shapes.STAR;
-            case "HOUSE":
-                return Shapes.HOUSE;
-            case "TREE":
-                return Shapes.TREE;
-            case "CIRCLE":
-                return Shapes.CIRCLE;
-            case "SQUARE":
-                return Shapes.SQUARE;
-            case "TURTLE":
-                return Shapes.TURTLE;
-            default:
-                return Shapes.CIRCLE;
+        if(shape instanceof ImageIcon){
+            ImageIcon icon = (ImageIcon) shape;
+            String description = icon.getDescription();
+            switch (description){
+                case "Hourglass":
+                    return Shapes.HOURGLASS;
+                case "Star":
+                    return Shapes.STAR;
+                case "House":
+                    return Shapes.HOUSE;
+                case "Tree":
+                    return Shapes.TREE;
+                case "Circle":
+                    return Shapes.CIRCLE;
+                case "Square":
+                    return Shapes.SQUARE;
+                case "Turtle":
+                    return Shapes.TURTLE;
+                default:
+                    return Shapes.CIRCLE;
+            }
         }
+        return Shapes.CIRCLE;
     }
 
     private String getShapeString(Object shape){
-        String pickedShape = ((String) shape).toUpperCase();
-        switch (pickedShape){
-            case "HOURGLASS":
-                return "Hourglass";
-            case "STAR":
-                return "Star";
-            case "HOUSE":
-                return "House";
-            case "TREE":
-                return "Tree";
-            case "CIRCLE":
-                return "Circle";
-            case "SQUARE":
-                return "Square";
-            case "TURTLE":
-                return "Turtle";
-            default:
-                return "Circle";
+        if(shape instanceof ImageIcon){
+            ImageIcon icon = (ImageIcon) shape;
+            String description = icon.getDescription();
+            switch (description){
+                case "Hourglass":
+                    return "Hourglass";
+                case "Star":
+                    return "Star";
+                case "House":
+                    return "House";
+                case "Tree":
+                    return "Tree";
+                case "Circle":
+                    return "Circle";
+                case "Square":
+                    return "Square";
+                case "Turtle":
+                    return "Turtle";
+                default:
+                    return "Circle";
+            }
         }
+        return "Circle";
     }
 }
