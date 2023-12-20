@@ -23,72 +23,80 @@ public class ComboBoxColorListener extends GeneralEventListener {
         mainFrame.getMenuPanel().getSouthPanel().getLabelColor().setForeground(getColor(color));
         mainFrame.getMenuPanel().getSouthPanel().getLabelColor().setText(getColorString(color));
         Layer currentLayer = mainFrame.getMainCanvas().getLayersManager().getActiveLayer();
-        if(currentLayer != null){
+        if (currentLayer != null) {
             currentLayer.setCurrentColor(getColor(color));
         }
     }
 
     private Color getColor(Object color) {
-        String pickedColor = ((String) color).toLowerCase();
-        switch (pickedColor) {
-            case "red":
-                return Color.RED;
-            case "green":
-                return Color.GREEN;
-            case "blue":
-                return Color.BLUE;
-            case "black":
-                return Color.BLACK;
-            case "wight":
-                return Color.WHITE;
-            case "cyan":
-                return Color.CYAN;
-            case "magenta":
-                return Color.MAGENTA;
-            case "yellow":
-                return Color.YELLOW;
-            case "violet":
-                return new Color(127, 0, 255);
-            case "orange":
-                return Color.ORANGE;
-            case "brown":
-                return new Color(165, 42, 42);
-            case "pink":
-                return Color.PINK;
-            default:
-                return null;
+        if (color instanceof Color) {
+            int rgb = ((Color) color).getRGB();
+            System.out.println(rgb);
+            switch (rgb) {
+                case -65536: // Red
+                    return Color.RED;
+                case -16711936: // Green
+                    return Color.GREEN;
+                case -16776961: // Blue
+                    return Color.BLUE;
+                case -16777216: // Black
+                    return Color.BLACK;
+                case -1:
+                    return Color.WHITE;
+                case -16711681: // Cyan
+                    return Color.CYAN;
+                case -65281: // Magenta
+                    return Color.MAGENTA;
+                case -256: // Yellow
+                    return Color.YELLOW;
+                case -8453889: // Violet
+                    return new Color(127, 0, 255);
+                case -43213: // Orange
+                    return Color.ORANGE;
+                case -5952982: // Brown
+                    return new Color(165, 42, 42);
+                case -16181: // Pink
+                    return Color.PINK;
+                default:
+                    return Color.BLACK;
+            }
         }
+        return Color.BLACK;
     }
 
     private String getColorString(Object color) {
-        String pickedColor = ((String) color).toLowerCase();
-        switch (pickedColor) {
-            case "red":
-                return "Red";
-            case "green":
-                return "Green";
-            case "blue":
-                return "Blue";
-            case "black":
-                return "Black";
-            case "wight":
-                return "Wight";
-            case "cyan":
-                return "Cyan";
-            case "magenta":
-                return "Magenta";
-            case "yellow":
-                return "Yellow";
-            case "violet":
-                return "Violet";
-            case "orange":
-                return "Orange";
-            case "brown":
-                return "Brown";
-            case "pink":
-                return "Pink";
-            default:
-                return null;
+        if (color instanceof Color) {
+            int rgb = ((Color) color).getRGB();
+            System.out.println(rgb);
+            switch (rgb) {
+                case -65536: // Red
+                    return "Red";
+                case -16711936: // Green
+                    return "Green";
+                case -16776961: // Blue
+                    return "Blue";
+                case -16777216: // Black
+                    return "Black";
+                case -1:
+                    return "White";
+                case -16711681: // Cyan
+                    return "Cyan";
+                case -65281: // Magenta
+                    return "Magenta";
+                case -256: // Yellow
+                    return "Yellow";
+                case -8453889: // Violet
+                    return "Violet";
+                case -43213: // Orange
+                    return "Orange";
+                case -5952982: // Brown
+                    return "Brown";
+                case -16181: // Pink
+                    return "Pink";
+                default:
+                    return "Black";
+            }
         }
+        return "Black";
     }
 }

@@ -61,13 +61,7 @@ public class SouthPanel extends JPanel {
         this.add(deleteButton);
         this.add(labelOption);
     }
-/*
-    private void comboBoxShapeSetup(){
-        String[] shapes = new String[] {"Tree", "House", "Turtle", "Star", "Circle", "Squer", "Hourglass"};
-        comboBoxShapes = new JComboBox<>(shapes);
-        comboBoxShapes.setSelectedIndex(4);
-    }
-*/
+
     private void comboBoxShapeSetup(){
         ImageIcon circleIcon = new ImageIcon(getClass().getResource("/icons/shapes/circle.png"));
         circleIcon.setDescription("Circle");
@@ -106,17 +100,45 @@ public class SouthPanel extends JPanel {
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                 label.setIcon((Icon) value);
-                label.setText("");
+                label.setText(((ImageIcon) value).getDescription());
                 return label;
             }
         });
         comboBoxShapes.setSelectedIndex(4);
     }
-
+/*
     private void comboBoxColorSetup(){
         String[] colors = new String[] {"Red", "Green", "Blue", "Black", "Wight", "Cyan", "Magenta", "Yellow", "Violet", "Orange", "Brown", "Pink"};
         comboBoxColors = new JComboBox<>(colors);
         comboBoxColors.setSelectedIndex(0);
+    }
+*/
+    private void comboBoxColorSetup(){
+        Color[] colors = {
+                new Color(255, 0, 0),
+                new Color(0, 255, 0),
+                new Color(0, 0, 255),
+                new Color(0,0,0),
+                new Color(255,255,255),
+                new Color(0,255,255),
+                new Color(255,0,255),
+                new Color(255,255,0),
+                new Color(255, 87, 51),
+                new Color(127, 0, 255),
+                new Color(165,42,42),
+                new Color(255,192,203)
+        };
+
+        comboBoxColors = new JComboBox<>(colors);
+        comboBoxColors.setRenderer(new DefaultListCellRenderer() {
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                label.setBackground((Color) value);
+                label.setText(" ");
+                return label;
+            }
+        });
     }
 
     private void labelColorSetup(){
