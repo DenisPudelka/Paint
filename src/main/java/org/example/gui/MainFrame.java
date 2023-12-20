@@ -15,6 +15,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.util.Arrays;
 
 @Getter
 public class MainFrame extends JFrame {
@@ -31,7 +32,7 @@ public class MainFrame extends JFrame {
     private CanvasMain mainCanvas;
 
     public MainFrame() throws HeadlessException {
-        super("Paint");
+        super("CanvasCraft Studio");
 
         setLayout(new BorderLayout());
 
@@ -48,6 +49,9 @@ public class MainFrame extends JFrame {
         setNorthPanel();
         jMenuSetup();
         JMenuEdit();
+
+        setIconImage();
+
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -137,5 +141,13 @@ public class MainFrame extends JFrame {
 
         actionMap.put("save", saveAction);
         actionMap.put("load", loadAction);
+    }
+
+    private void setIconImage(){
+        ImageIcon icon16 = new ImageIcon(getClass().getResource("/icons/icon16.png"));
+        ImageIcon icon24 = new ImageIcon(getClass().getResource("/icons/icon24.png"));
+        ImageIcon icon32 = new ImageIcon(getClass().getResource("/icons/icon32.png"));
+        ImageIcon icon64 = new ImageIcon(getClass().getResource("/icons/icon64.png"));
+        this.setIconImages(Arrays.asList(icon16.getImage(), icon24.getImage(), icon32.getImage(), icon64.getImage()));
     }
 }
