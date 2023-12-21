@@ -2,9 +2,8 @@ package org.example.listeners.combobox;
 
 import org.example.gui.MainFrame;
 import org.example.listeners.general.GeneralEventListener;
-import org.example.models.abstractClasses.GeometryShape;
 import org.example.models.enums.Shapes;
-import org.example.models.layers.Layer;
+import org.example.models.layers.CanvasMain;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -20,10 +19,15 @@ public class ComboBoxShapeListener extends GeneralEventListener {
     public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e);
         System.out.println("Shape");
+        CanvasMain canvas = mainFrame.getMainCanvas();
         Object shape = mainFrame.getMenuPanel().getSouthPanel().getComboBoxShapes().getSelectedItem();
-        mainFrame.getMenuPanel().getSouthPanel().getLabelShape().setText(getShapeString(shape));
-        mainFrame.getMainCanvas().setCurrentShapeEnums(getShape(shape));
-        mainFrame.getMainCanvas().setCurrentShapeEnums(getShape(shape));
+        mainFrame.getMenuPanel().getSouthPanel().getLabelDrawingTool().setText("Drawing Tool: Shape " + getShapeString(shape));
+        if(canvas.isBrushToolOption()){
+            canvas.setBrushToolOption(false);
+            mainFrame.getMenuPanel().getSouthPanel().getLabelDrawingTool().setText("Drawing Tool: Shape " + getShapeString(shape));
+        }
+        canvas.setCurrentShapeEnums(getShape(shape));
+        canvas.setCurrentShapeEnums(getShape(shape));
     }
 
     private Shapes getShape(Object shape){

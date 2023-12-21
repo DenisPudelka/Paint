@@ -22,7 +22,7 @@ public class SouthPanel extends JPanel {
     private JComboBox comboBoxShapes;
     private JComboBox comboBoxColors;
     private JLabel labelColor;
-    private JLabel labelShape;
+    private JLabel labelDrawingTool;
 
     public SouthPanel(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
@@ -54,7 +54,7 @@ public class SouthPanel extends JPanel {
         labelSetup();
 
         this.add(comboBoxShapes);
-        this.add(labelShape);
+        this.add(labelDrawingTool);
         this.add(comboBoxColors);
         this.add(labelColor);
         this.add(moveButton);
@@ -104,7 +104,7 @@ public class SouthPanel extends JPanel {
                 return label;
             }
         });
-        comboBoxShapes.setSelectedIndex(4);
+        comboBoxShapes.setSelectedIndex(0);
     }
 /*
     private void comboBoxColorSetup(){
@@ -135,10 +135,11 @@ public class SouthPanel extends JPanel {
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                 label.setBackground((Color) value);
-                label.setText(" ");
+                label.setText("Color");
                 return label;
             }
         });
+
     }
 
     private void labelColorSetup(){
@@ -147,7 +148,7 @@ public class SouthPanel extends JPanel {
     }
 
     private void labelShapeSetup(){
-        labelShape = new JLabel("Circle");
+        labelDrawingTool = new JLabel("Drawing Tool: Shape Circle");
     }
 
     private void moveButtonSetup(){
@@ -159,6 +160,6 @@ public class SouthPanel extends JPanel {
     }
 
     private void labelSetup(){
-        labelOption = new JLabel("...");
+        labelOption = new JLabel("Action: none");
     }
 }

@@ -18,7 +18,7 @@ public class ButtonMoveListener extends GeneralEventListener {
         super.actionPerformed(e);
         CanvasMain canvas = mainFrame.getMainCanvas();
         canvas.toggleMoveOption();
-        mainFrame.getMenuPanel().getSouthPanel().getLabelOption().setText("Move");
+        mainFrame.getMenuPanel().getSouthPanel().getLabelOption().setText("Action: Move");
         if(canvas.isBrushToolOption()){
             canvas.toggleBrushOption();
         }
@@ -26,7 +26,7 @@ public class ButtonMoveListener extends GeneralEventListener {
             canvas.toggleDeleteOption();
         }
         if(!canvas.isMoveOption()){
-            mainFrame.getMenuPanel().getSouthPanel().getLabelOption().setText("...");
+            mainFrame.getMenuPanel().getSouthPanel().getLabelOption().setText("Action: none");
         }
     }
 }

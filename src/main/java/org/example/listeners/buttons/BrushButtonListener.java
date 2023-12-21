@@ -18,15 +18,9 @@ public class BrushButtonListener extends GeneralEventListener {
         super.actionPerformed(e);
         CanvasMain canvas = mainFrame.getMainCanvas();
         canvas.toggleBrushOption();
-        mainFrame.getMenuPanel().getSouthPanel().getLabelOption().setText("Brush Tool");
-        if(canvas.isMoveOption()){
-            canvas.toggleMoveOption();
-        }
-        if(canvas.isDeleteOption()){
-            canvas.toggleDeleteOption();
-        }
+        mainFrame.getMenuPanel().getSouthPanel().getLabelDrawingTool().setText("Drawing Tool: Brush");
         if(!canvas.isBrushToolOption()){
-            mainFrame.getMenuPanel().getSouthPanel().getLabelOption().setText("...");
+            mainFrame.getMenuPanel().getSouthPanel().getLabelDrawingTool().setText("Drawing Tool: Shape " + mainFrame.getMenuPanel().getSouthPanel().getComboBoxShapes().getSelectedItem());
         }
     }
 }

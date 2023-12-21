@@ -17,7 +17,7 @@ public class DeleteButtonListener extends GeneralEventListener {
     public void actionPerformed(ActionEvent e) {
         CanvasMain canvas = mainFrame.getMainCanvas();
         canvas.toggleDeleteOption();
-        mainFrame.getMenuPanel().getSouthPanel().getLabelOption().setText("Delete");
+        mainFrame.getMenuPanel().getSouthPanel().getLabelOption().setText("Action: Delete");
         if(canvas.isBrushToolOption()){
             canvas.toggleBrushOption();
         }
@@ -25,7 +25,7 @@ public class DeleteButtonListener extends GeneralEventListener {
             canvas.toggleMoveOption();
         }
         if(!canvas.isDeleteOption()){
-            mainFrame.getMenuPanel().getSouthPanel().getLabelOption().setText("...");
+            mainFrame.getMenuPanel().getSouthPanel().getLabelOption().setText("Action: none");
         }
     }
 
