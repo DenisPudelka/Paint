@@ -1,6 +1,7 @@
 package org.example.gui.north_panel;
 
 import org.example.gui.MainFrame;
+import org.example.listeners.palette.PaletteColorPicker;
 import org.example.listeners.palette.PaletteComboBox;
 import org.example.models.abstractClasses.GeometryShape;
 import org.example.models.color_palette.ColorPalette;
@@ -40,16 +41,17 @@ public class PaletteDisplayPanel extends JPanel {
         for(Color color : palette.getColors()){
             JButton colorButton = new JButton();
             colorButton.setBackground(color);
-            colorButton.setPreferredSize(new Dimension(30,30));
-            colorButton.addActionListener(e -> {
-                Layer currentLayer = mainFrame.getMainCanvas().getLayersManager().getActiveLayer();
-                if(currentLayer != null){
-                    currentLayer.setCurrentColor(color);
-                }
-            });
+            colorButton.setPreferredSize(new Dimension(20,20));
+            colorButton.setActionCommand(colorToHexString(color));
+            colorButton.addActionListener(new PaletteColorPicker(mainFrame));
+
             colorsPanel.add(colorButton);
         }
         colorsPanel.revalidate();
         colorsPanel.repaint();
+    }
+
+    private String colorToHexString(Color color) {
+        return String.format("#%02x%02x%02x", color.getRed(), color.getGreen(), color.getBlue());
     }
 }

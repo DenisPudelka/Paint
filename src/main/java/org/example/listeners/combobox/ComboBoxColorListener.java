@@ -1,6 +1,7 @@
 package org.example.listeners.combobox;
 
 import org.example.gui.MainFrame;
+import org.example.gui.south_panel.SouthPanel;
 import org.example.listeners.general.GeneralEventListener;
 import org.example.models.abstractClasses.GeometryShape;
 import org.example.models.layers.Layer;
@@ -20,8 +21,8 @@ public class ComboBoxColorListener extends GeneralEventListener {
         super.actionPerformed(e);
         System.out.println("Color");
         Object color = mainFrame.getMenuPanel().getSouthPanel().getComboBoxColors().getSelectedItem();
-        mainFrame.getMenuPanel().getSouthPanel().getLabelColor().setForeground(getColor(color));
-        mainFrame.getMenuPanel().getSouthPanel().getLabelColor().setText(getColorString(color));
+        SouthPanel southPanel = mainFrame.getMenuPanel().getSouthPanel();
+        southPanel.getColorIndicator().setColorSquare(getColor(color));
         Layer currentLayer = mainFrame.getMainCanvas().getLayersManager().getActiveLayer();
         if (currentLayer != null) {
             currentLayer.setCurrentColor(getColor(color));

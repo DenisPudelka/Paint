@@ -22,6 +22,7 @@ public class SouthPanel extends JPanel {
     private JComboBox comboBoxShapes;
     private JComboBox comboBoxColors;
     private JLabel labelColor;
+    private ColorIndicator colorIndicator;
     private JLabel labelDrawingTool;
 
     public SouthPanel(MainFrame mainFrame) {
@@ -47,7 +48,8 @@ public class SouthPanel extends JPanel {
 
         comboBoxShapeSetup();
         comboBoxColorSetup();
-        labelColorSetup();
+        //labelColorSetup();
+        colorIndicatorSetup();
         labelShapeSetup();
         moveButtonSetup();
         deleteButtonSetup();
@@ -56,7 +58,8 @@ public class SouthPanel extends JPanel {
         this.add(comboBoxShapes);
         this.add(labelDrawingTool);
         this.add(comboBoxColors);
-        this.add(labelColor);
+        //this.add(labelColor);
+        this.add(colorIndicator);
         this.add(moveButton);
         this.add(deleteButton);
         this.add(labelOption);
@@ -106,13 +109,7 @@ public class SouthPanel extends JPanel {
         });
         comboBoxShapes.setSelectedIndex(0);
     }
-/*
-    private void comboBoxColorSetup(){
-        String[] colors = new String[] {"Red", "Green", "Blue", "Black", "Wight", "Cyan", "Magenta", "Yellow", "Violet", "Orange", "Brown", "Pink"};
-        comboBoxColors = new JComboBox<>(colors);
-        comboBoxColors.setSelectedIndex(0);
-    }
-*/
+
     private void comboBoxColorSetup(){
         Color[] colors = {
                 new Color(255, 0, 0),
@@ -139,12 +136,15 @@ public class SouthPanel extends JPanel {
                 return label;
             }
         });
-
     }
 
     private void labelColorSetup(){
         labelColor = new JLabel("Red");
         labelColor.setForeground(Color.RED);
+    }
+
+    private void colorIndicatorSetup(){
+        colorIndicator = new ColorIndicator(mainFrame);
     }
 
     private void labelShapeSetup(){
