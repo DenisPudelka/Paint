@@ -3,7 +3,7 @@ package org.example.models.layers;
 import lombok.Getter;
 import lombok.Setter;
 import org.example.gui.MainFrame;
-import org.example.models.abstractClasses.GeometryShape;
+import org.example.models.helpClasses.GeometryShape;
 import org.example.models.brushes.Brush;
 import org.example.models.enums.Shapes;
 import org.example.models.interfaces.Command;

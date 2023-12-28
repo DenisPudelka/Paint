@@ -1,6 +1,6 @@
 package org.example.models.undoredo;
 
-import org.example.models.abstractClasses.GeometryShape;
+import org.example.models.helpClasses.GeometryShape;
 import org.example.models.interfaces.Command;
 import org.example.models.layers.Layer;
 

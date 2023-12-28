@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.gui.MainFrame;
 import org.example.listeners.CanvasListener;
-import org.example.models.abstractClasses.GeometryShape;
+import org.example.models.helpClasses.GeometryShape;
 import org.example.models.color_palette.PaletteManager;
 import org.example.models.enums.Shapes;
 import org.example.models.undoredo.CommandManager;

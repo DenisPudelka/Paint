@@ -1,6 +1,6 @@
 package org.example.models.brushes;
 
-import org.example.models.abstractClasses.GeometryShape;
+import org.example.models.helpClasses.GeometryShape;
 
 import java.awt.*;
 import java.util.ArrayList;

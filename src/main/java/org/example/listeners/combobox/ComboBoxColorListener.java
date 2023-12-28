@@ -3,7 +3,6 @@ package org.example.listeners.combobox;
 import org.example.gui.MainFrame;
 import org.example.gui.south_panel.SouthPanel;
 import org.example.listeners.general.GeneralEventListener;
-import org.example.models.abstractClasses.GeometryShape;
 import org.example.models.layers.Layer;
 
 import java.awt.*;

@@ -2,10 +2,7 @@ package org.example.gui.north_panel;
 
 import org.example.gui.MainFrame;
 import org.example.listeners.palette.PaletteColorPicker;
-import org.example.listeners.palette.PaletteComboBox;
-import org.example.models.abstractClasses.GeometryShape;
 import org.example.models.color_palette.ColorPalette;
-import org.example.models.layers.Layer;
 
 import javax.swing.*;
 import java.awt.*;

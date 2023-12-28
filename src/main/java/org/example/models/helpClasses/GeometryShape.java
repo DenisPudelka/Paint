@@ -1,4 +1,4 @@
-package org.example.models.abstractClasses;
+package org.example.models.helpClasses;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

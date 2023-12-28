@@ -1,7 +1,6 @@
 package org.example.models.shapes;
 
-import lombok.NoArgsConstructor;
-import org.example.models.abstractClasses.GeometryShape;
+import org.example.models.helpClasses.GeometryShape;
 
 import java.awt.*;
 import java.io.Serializable;

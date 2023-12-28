@@ -2,7 +2,6 @@ package org.example.listeners.undoredo;
 
 import org.example.gui.MainFrame;
 import org.example.listeners.general.GeneralEventListener;
-import org.example.models.abstractClasses.GeometryShape;
 
 import java.awt.event.ActionEvent;
 

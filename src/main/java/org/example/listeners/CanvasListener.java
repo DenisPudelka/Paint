@@ -2,7 +2,7 @@ package org.example.listeners;
 
 import org.example.gui.MainFrame;
 import org.example.listeners.general.GeneralEventListener;
-import org.example.models.abstractClasses.GeometryShape;
+import org.example.models.helpClasses.GeometryShape;
 import org.example.models.enums.Shapes;
 import org.example.models.layers.CanvasMain;
 import org.example.models.layers.Layer;
