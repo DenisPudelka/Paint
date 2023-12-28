@@ -11,7 +11,7 @@ public class Brush extends GeometryShape {
     private int brushSize;
 
     public Brush(int x, int y, int brushSize, Color color) {
-        super(x,y,0,color);
+        super(x,y,0, color);
         this.points = new ArrayList<>();
         this.brushSize = brushSize;
         this.points.add(new Point(x,y));
@@ -23,7 +23,7 @@ public class Brush extends GeometryShape {
 
     @Override
     public void draw(Graphics2D graphics2D) {
-        graphics2D.setColor(this.getColor());
+        graphics2D.setColor(getColor());
         for(Point point : points){
             graphics2D.fillOval(point.x - brushSize / 2, point.y - brushSize / 2, brushSize, brushSize);
         }

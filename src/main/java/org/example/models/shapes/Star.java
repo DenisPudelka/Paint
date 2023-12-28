@@ -10,10 +10,6 @@ public class Star extends GeometryShape implements Serializable {
         super(x, y, radius, color);
     }
 
-    Star() {
-        super(0, 0, 0, null);
-    }
-
     @Override
     public void draw(Graphics2D graphics2D) {
         int[] xPoints = new int[10];

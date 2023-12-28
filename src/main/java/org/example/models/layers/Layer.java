@@ -3,6 +3,7 @@ package org.example.models.layers;
 import lombok.Getter;
 import lombok.Setter;
 import org.example.gui.MainFrame;
+import org.example.models.helpClasses.ColorFactory;
 import org.example.models.helpClasses.GeometryShape;
 import org.example.models.brushes.Brush;
 import org.example.models.enums.Shapes;
@@ -49,31 +50,33 @@ public class Layer extends JPanel implements Serializable {
     }
 
     public GeometryShape createShape(Shapes currentShape, int x, int y, int radius, Color color){
+        Color colorFlyweight = ColorFactory.getColor(currentColor.getRed(), currentColor.getGreen(), currentColor.getBlue());
+
         GeometryShape shape;
         switch (currentShape){
             case HOURGLASS:
-                shape = new Hourglass(x,y,radius,color);
+                shape = new Hourglass(x,y,radius, colorFlyweight);
                 break;
             case TREE:
-                shape = new Tree(x,y,radius,color);
+                shape = new Tree(x,y,radius, colorFlyweight);
                 break;
             case HOUSE:
-                shape = new House(x,y,radius,color);
+                shape = new House(x,y,radius, colorFlyweight);
                 break;
             case STAR:
-                shape = new Star(x,y,radius,color);
+                shape = new Star(x,y,radius, colorFlyweight);
                 break;
             case SQUARE:
-                shape = new Square(x,y,radius,color);
+                shape = new Square(x,y,radius, colorFlyweight);
                 break;
             case TURTLE:
-                shape = new Turtle(x,y,radius,color);
+                shape = new Turtle(x,y,radius, colorFlyweight);
                 break;
             case CIRCLE:
-                shape = new Circle(x,y,radius,color);
+                shape = new Circle(x,y,radius, colorFlyweight);
                 break;
             case BRUSH:
-                shape = new Brush(x,y,radius,currentColor);
+                shape = new Brush(x,y,radius, colorFlyweight);
                 currentBrushStroke = (Brush) shape;
                 break;
             default:
