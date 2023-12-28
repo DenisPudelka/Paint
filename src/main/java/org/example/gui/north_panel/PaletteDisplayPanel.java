@@ -23,12 +23,12 @@ public class PaletteDisplayPanel extends JPanel {
     }
 
     private void initializeUI() {
-        setLayout(new BorderLayout());
-        paletteNameLabel = new JLabel("Initial Palette");
+        setLayout(new FlowLayout());
+        paletteNameLabel = new JLabel("Palette of Colors");
         colorsPanel = new JPanel(new FlowLayout());
 
-        add(paletteNameLabel, BorderLayout.NORTH);
-        add(colorsPanel, BorderLayout.CENTER);
+        add(paletteNameLabel);
+        add(colorsPanel);
     }
 
     public void updatePalette(ColorPalette palette){

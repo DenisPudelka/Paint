@@ -1,4 +1,4 @@
-package org.example.gui.east_panel;
+package org.example.gui.north_panel;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -28,8 +28,8 @@ public class Palette extends JPanel {
     }
 
     private void initializeUI() {
-        setLayout(new BorderLayout());
-        buttonPanele = new JPanel(new GridLayout(2,1));
+        setLayout(new FlowLayout());
+        buttonPanele = new JPanel(new GridLayout(1,2));
 
         newPalette = new JButton("New Palette");
         removePallete = new JButton("Remove Palette");
@@ -50,8 +50,8 @@ public class Palette extends JPanel {
         comboPanel.add(paletteComboBox);
 
         setupButtonsListener();
-        this.add(buttonPanele, BorderLayout.NORTH);
-        this.add(scrollPane, BorderLayout.CENTER);
+        this.add(buttonPanele);
+        this.add(scrollPane);
     }
 
     private void setupButtonsListener(){

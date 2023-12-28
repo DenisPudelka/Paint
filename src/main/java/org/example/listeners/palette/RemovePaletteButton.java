@@ -16,9 +16,9 @@ public class RemovePaletteButton extends GeneralEventListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e);
-        String selectedPaletteName = (String) mainFrame.getEastPanel().getPalette().getPaletteComboBox().getSelectedItem();
+        String selectedPaletteName = (String) mainFrame.getNorthPanel().getPalette().getPaletteComboBox().getSelectedItem();
         ColorPalette selectedPalette = mainFrame.getMainCanvas().getPaletteManager().getPaletteByName(selectedPaletteName);
         mainFrame.getMainCanvas().getPaletteManager().removePalette(selectedPalette);
-        mainFrame.getEastPanel().getPalette().getPaletteComboBox().removeItem(selectedPaletteName);
+        mainFrame.getNorthPanel().getPalette().getPaletteComboBox().removeItem(selectedPaletteName);
     }
 }

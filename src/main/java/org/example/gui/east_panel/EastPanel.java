@@ -12,7 +12,6 @@ import java.awt.*;
 public class EastPanel extends JPanel {
     private MainFrame mainFrame;
     private LayersPanel layersPanel;
-    private Palette palette;
 
     public EastPanel(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
@@ -24,10 +23,8 @@ public class EastPanel extends JPanel {
         this.setLayout(borderLayout);
 
         layersPanel = new LayersPanel(mainFrame);
-        palette = new Palette(mainFrame);
 
 
         this.add(layersPanel, BorderLayout.CENTER);
-        this.add(palette, BorderLayout.SOUTH);
     }
 }

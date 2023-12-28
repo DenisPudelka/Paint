@@ -78,7 +78,7 @@ public class NewPaletteButton extends GeneralEventListener {
         finalizePaletteButton.addActionListener(ev -> {
             chosenColors.forEach(newColorPalette::addColor);
             mainFrame.getMainCanvas().getPaletteManager().addPalette(newColorPalette);
-            mainFrame.getEastPanel().getPalette().getPaletteComboBox().addItem(newColorPalette.getName());
+            mainFrame.getNorthPanel().getPalette().getPaletteComboBox().addItem(newColorPalette.getName());
             addDialog.dispose(); // Close the dialog
         });
 

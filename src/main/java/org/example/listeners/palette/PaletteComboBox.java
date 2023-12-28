@@ -17,7 +17,7 @@ public class PaletteComboBox extends GeneralEventListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e);
-        String name = mainFrame.getEastPanel().getPalette().getPaletteComboBox().getSelectedItem().toString();
+        String name = mainFrame.getNorthPanel().getPalette().getPaletteComboBox().getSelectedItem().toString();
         ColorPalette colorPalette = mainFrame.getMainCanvas().getPaletteManager().getPaletteByName(name);
         if(colorPalette != null){
             mainFrame.getNorthPanel().getPaletteDisplayPanel().updatePalette(colorPalette);

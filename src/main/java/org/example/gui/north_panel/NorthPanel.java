@@ -12,8 +12,16 @@ import java.awt.*;
 @Setter
 public class NorthPanel extends JPanel {
     private MainFrame mainFrame;
+    private JPanel palettePanel;
     private PaletteDisplayPanel paletteDisplayPanel;
-    private JButton brushTool;
+    private Palette palette;
+    private JPanel brushPanel;
+    private JButton basicBrush;
+    private JButton airBrush;
+    private JButton calligraphyBrush;
+    private JButton waterColorBrush;
+    private JButton eraser;
+    private JButton pencil;
 
     public NorthPanel(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
@@ -23,20 +31,39 @@ public class NorthPanel extends JPanel {
 
     private void initializeListeners() {
         BrushButtonListener brushButtonListener = new BrushButtonListener(mainFrame);
-        brushTool.addActionListener(brushButtonListener);
+        basicBrush.addActionListener(brushButtonListener);
     }
 
     private void initializeUI() {
-        setLayout(new BorderLayout());
+        setLayout(new GridLayout(1,2));
 
-        setupComboBox();
+        brushPanel = new JPanel();
+        brushPanel.setLayout(new FlowLayout());
+        setupJButtonBrushes();
+        brushPanel.add(basicBrush);
+        brushPanel.add(airBrush);
+        brushPanel.add(calligraphyBrush);
+        brushPanel.add(waterColorBrush);
+        brushPanel.add(eraser);
+        brushPanel.add(pencil);
+
+        palettePanel = new JPanel();
+        palettePanel.setLayout(new FlowLayout());
         paletteDisplayPanel = new PaletteDisplayPanel(mainFrame);
+        palette = new Palette(mainFrame);
+        palettePanel.add(paletteDisplayPanel);
+        palettePanel.add(palette);
 
-        add(brushTool, BorderLayout.WEST);
-        add(paletteDisplayPanel, BorderLayout.CENTER);
+        add(brushPanel);
+        add(palettePanel);
     }
 
-    private void setupComboBox(){
-        brushTool = new JButton("Brush");
+    private void setupJButtonBrushes(){
+        basicBrush = new JButton("Basic Brush");
+        airBrush = new JButton("Air Brush");
+        calligraphyBrush = new JButton("Calligraphy Brush");
+        waterColorBrush = new JButton("Watercolor Brush");
+        eraser = new JButton("Eraser");
+        pencil = new JButton("Pencil");
     }
 }
