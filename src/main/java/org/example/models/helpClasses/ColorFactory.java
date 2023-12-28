@@ -10,6 +10,7 @@ public class ColorFactory {
 
     public static Color getColor(int r, int g, int b){
         Color color = new Color(r,g,b);
+        System.out.println(colors.size());
         return colors.computeIfAbsent(color, key -> color);
     }
 }
