@@ -11,7 +11,7 @@ public class DeleteLayerKeyboardListener extends AbstractAction {
     public DeleteLayerKeyboardListener(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
     }
-
+/*
     @Override
     public void actionPerformed(ActionEvent e) {
         if(mainFrame.getMainCanvas().getLayersManager().getLayers().size() > 1){
@@ -23,5 +23,10 @@ public class DeleteLayerKeyboardListener extends AbstractAction {
             }
         }
         mainFrame.getMainCanvas().repaint();
+    }
+*/
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 }

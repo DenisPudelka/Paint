@@ -23,9 +23,10 @@ public class LayersManager implements Serializable {
         this.activeLayer = initialLayer;
     }
 
-    public void addLayer(){
+    public Layer addLayer(){
         Layer newLayer = new Layer(this.mainFrame, true, layers.size()+1);
         this.layers.add(newLayer);
+        return newLayer;
     }
 
     public void removeLayer(int indexLayer){

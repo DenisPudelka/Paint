@@ -12,7 +12,7 @@ public class RemoveLayerJButton extends GeneralEventListener {
     public RemoveLayerJButton(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
     }
-
+/*
     @Override
     public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e);
@@ -25,5 +25,11 @@ public class RemoveLayerJButton extends GeneralEventListener {
             }
         }
         mainFrame.getMainCanvas().repaint();
+    }
+*/
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        super.actionPerformed(e);
+
     }
 }

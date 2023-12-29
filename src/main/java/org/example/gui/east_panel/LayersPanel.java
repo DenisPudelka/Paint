@@ -8,21 +8,25 @@ import org.example.listeners.keyboard.NewLayerKeyboardAction;
 import org.example.listeners.layer.LayerEventLastener;
 import org.example.listeners.buttons.NewLayerJButtonListener;
 import org.example.listeners.buttons.RemoveLayerJButton;
+import org.example.models.layers.Layer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 @Getter
 @Setter
-public class LayersPanel extends JPanel{
+public class LayersPanel extends JPanel {
     private MainFrame mainFrame;
-    private JList layers;
+    //private JList layers;
     private JButton addNewLayer;
     private JButton removeLayer;
     private JPanel buttons;
-    private DefaultListModel listModel;
+    //private DefaultListModel listModel;
+    private JPanel layersPanel;
     private JScrollPane scrollPane;
 
     public LayersPanel(MainFrame mainFrame) {
@@ -31,52 +35,74 @@ public class LayersPanel extends JPanel{
         listenerSetup();
     }
 
-    private void setElement(){
+    /*
+        private void setElement() {
+            this.setLayout(new BorderLayout());
+            setButtons();
+            setLayers();
+            add(buttons, BorderLayout.NORTH);
+            add(scrollPane, BorderLayout.CENTER);
+        }
+     */
+    private void setElement() {
         this.setLayout(new BorderLayout());
         setButtons();
         setLayers();
         add(buttons, BorderLayout.NORTH);
+        scrollPane = new JScrollPane(layersPanel);
         add(scrollPane, BorderLayout.CENTER);
     }
 
-    private void setLayers(){
-        listModel = new DefaultListModel<>();
-        listModel.addElement("Layer 1");
-        layers = new JList<>(listModel);
-        layers.setSelectedIndex(0);
+    /*
+        private void setLayers() {
+            listModel = new DefaultListModel<>();
+            listModel.addElement("Layer 1");
+            layers = new JList<>(listModel);
+            layers.setSelectedIndex(0);
 
-        scrollPane = new JScrollPane(layers);
+            scrollPane = new JScrollPane(layers);
+        }
+     */
+    private void setLayers() {
+        layersPanel = new JPanel();
+        layersPanel.setLayout(new BoxLayout(layersPanel, BoxLayout.Y_AXIS));
+
+        // Example of adding layers
+        for (Layer layer : mainFrame.getMainCanvas().getLayersManager().getLayers()) {
+            LayerPanel layerPanel = new LayerPanel(mainFrame, layer.getId(), layer.isVisible());
+            layersPanel.add(layerPanel);
+        }
     }
 
-    private void setButtons(){
+    private void setButtons() {
         buttons = new JPanel();
-        buttons.setLayout(new GridLayout(2,1));
+        buttons.setLayout(new GridLayout(2, 1));
         this.setJButtonAddNewLayer();
         this.setJButtonRemoveLayer();
         buttons.add(addNewLayer);
         buttons.add(removeLayer);
     }
 
-    private void setJButtonAddNewLayer(){
+    private void setJButtonAddNewLayer() {
         addNewLayer = new JButton("New Layer");
     }
 
-    private void setJButtonRemoveLayer(){
+    private void setJButtonRemoveLayer() {
         removeLayer = new JButton("Remove Layer");
     }
 
-    private void listenerSetup(){
+    private void listenerSetup() {
         NewLayerJButtonListener newLayerJButtonListener = new NewLayerJButtonListener(mainFrame);
         addNewLayer.addActionListener(newLayerJButtonListener);
         RemoveLayerJButton removeLayerJButton = new RemoveLayerJButton(mainFrame);
         removeLayer.addActionListener(removeLayerJButton);
-        LayerEventLastener layerEventLastener = new LayerEventLastener(mainFrame, layers);
-        layers.addListSelectionListener(layerEventLastener);
+//        LayerEventLastener layerEventLastener = new LayerEventLastener(mainFrame, layers);
+//        layers.addListSelectionListener(layerEventLastener);
 
         shorcutNewLayerDeleteLayer();
     }
 
-    private void shorcutNewLayerDeleteLayer(){
+    private void shorcutNewLayerDeleteLayer() {
         InputMap inputMap = mainFrame.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
         ActionMap actionMap = mainFrame.getRootPane().getActionMap();
 
