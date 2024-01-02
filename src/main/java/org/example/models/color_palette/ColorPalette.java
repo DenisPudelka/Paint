@@ -16,6 +16,18 @@ public class ColorPalette {
     public ColorPalette(String name) {
         this.name = name;
         this.colors = new ArrayList<>();
+        initializeDefaultColors();
+    }
+
+    public ColorPalette(String name, boolean empty) {
+        this.name = name;
+        this.colors = new ArrayList<>();
+        if(!empty) {
+            initializeDefaultColors();
+        }
+    }
+
+    private void initializeDefaultColors(){
         this.colors.add(new Color(239,118,122));
         this.colors.add(new Color(69,105,114));
         this.colors.add(new Color(73,190,170));

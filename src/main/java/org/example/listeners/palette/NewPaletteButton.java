@@ -21,7 +21,7 @@ public class NewPaletteButton extends GeneralEventListener {
     public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e);
         String newPaletteName = "Palette " + (++paletteCount);
-        ColorPalette newColorPalette = new ColorPalette(newPaletteName);
+        ColorPalette newColorPalette = new ColorPalette(newPaletteName, true);
         List<Color> chosenColors = new ArrayList<>();
 
         // Create and set up the dialog
