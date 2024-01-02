@@ -33,6 +33,8 @@ public class NewLayerJButtonListener extends GeneralEventListener {
     public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e);
         Layer newLayer = mainFrame.getMainCanvas().getLayersManager().addLayer();
+        mainFrame.getMenuPanel().getSouthPanel().getColorIndicator().setColorSquare(newLayer.getCurrentColor());
+        mainFrame.getMainCanvas().getLayersManager().setActiveLayer(newLayer);
 
         LayerPanel newLayerPanel = new LayerPanel(mainFrame, newLayer.getId(), newLayer.isVisible());
 
