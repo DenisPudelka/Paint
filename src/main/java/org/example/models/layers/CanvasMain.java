@@ -45,7 +45,7 @@ public class CanvasMain extends JPanel implements Serializable {
         brushToolOption = false;
     }
 
-    private void listenersSetup(){
+    private void listenersSetup() {
         CanvasListener canvasListener = new CanvasListener(mainFrame);
         addMouseMotionListener(canvasListener);
         addMouseListener(canvasListener);
@@ -54,54 +54,56 @@ public class CanvasMain extends JPanel implements Serializable {
     public void toggleMoveOption() {
         this.moveOption = !moveOption;
     }
+
     public void toggleDeleteOption() {
         this.deleteOption = !deleteOption;
     }
+
     public void toggleBrushOption() {
         this.brushToolOption = !brushToolOption;
     }
 
     public GeometryShape findShapeAt(int x, int y) {
         Layer activeLayer = layersManager.getActiveLayer();
-        if(activeLayer != null){
-            return activeLayer.findShapeAt(x,y);
+        if (activeLayer != null) {
+            return activeLayer.findShapeAt(x, y);
         }
         return null;
     }
 
     public void deleteSelectedShape(GeometryShape shape) {
         Layer activeLayer = layersManager.getActiveLayer();
-        if(activeLayer != null){
+        if (activeLayer != null) {
             activeLayer.deleteSelectedShape(shape);
         }
         repaint();
     }
 
-    public void startDrawingShape(int x,int y,int radius){
+    public void startDrawingShape(int x, int y, int radius) {
         Layer activeLayer = layersManager.getActiveLayer();
-        if(activeLayer != null){
-            activeLayer.startDrawingShape(this.currentShapeEnums, x,y,radius);
+        if (activeLayer != null) {
+            activeLayer.startDrawingShape(this.currentShapeEnums, x, y, radius);
         }
         repaint();
     }
 
     public void setCurrentShape(GeometryShape shape) {
         Layer activeLayer = layersManager.getActiveLayer();
-        if(activeLayer != null) {
+        if (activeLayer != null) {
             activeLayer.setCurrentShape(shape);
         }
     }
 
-    public void saveCanvas(File file){
-        try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
+    public void saveCanvas(File file) {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
             out.writeObject(this.layersManager);
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void loadCanvas(File file){
-        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))){
+    public void loadCanvas(File file) {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
             LayersManager loadLayersManager = (LayersManager) in.readObject();
             this.layersManager = loadLayersManager;
             for (Layer layer : this.layersManager.getLayers()) {
@@ -111,11 +113,11 @@ public class CanvasMain extends JPanel implements Serializable {
             this.layersManager.setMainFrame(this.mainFrame);
             this.commandManager = new CommandManager();
             repaint();
-        }catch (IOException | ClassNotFoundException exception){
+        } catch (IOException | ClassNotFoundException exception) {
             exception.printStackTrace();
         }
     }
-
+/*
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -126,6 +128,18 @@ public class CanvasMain extends JPanel implements Serializable {
                 if (layer.isVisible()) {
                     layer.paintComponent(graphics2D);
                 }
+            }
+        }
+    }
+    */
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D graphics2D = (Graphics2D) g;
+        for (Layer layer : this.layersManager.getLayers()) {
+            if (layer.isVisible()) {
+                layer.paintComponent(graphics2D);
             }
         }
     }
