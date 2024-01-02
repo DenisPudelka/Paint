@@ -32,6 +32,7 @@ public class LayerPanel extends JPanel {
 
 
         layerButton = new JButton();
+        layerButton.setBackground(Color.WHITE);
         layerButton.setText("Layer " + layerId);
 
         visibilityCheckBox = new JCheckBox();
