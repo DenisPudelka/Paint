@@ -43,7 +43,7 @@ public class LayerPanel extends JPanel {
     }
 
     private void listenerSetup() {
-        LayerCheckBox layerCheckBox = new LayerCheckBox(mainFrame);
+        LayerCheckBox layerCheckBox = new LayerCheckBox(mainFrame, layerId);
         visibilityCheckBox.addActionListener(layerCheckBox);
         LayerButton layerButtonListener = new LayerButton(mainFrame, layerId);
         layerButton.addActionListener(layerButtonListener);
