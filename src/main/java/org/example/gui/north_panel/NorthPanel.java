@@ -7,6 +7,7 @@ import org.example.listeners.buttons.BrushButtonListener;
 
 import javax.swing.*;
 import java.awt.*;
+import java.net.URL;
 
 @Getter
 @Setter
@@ -59,11 +60,38 @@ public class NorthPanel extends JPanel {
     }
 
     private void setupJButtonBrushes(){
-        basicBrush = new JButton("Basic Brush");
-        airBrush = new JButton("Air Brush");
-        calligraphyBrush = new JButton("Calligraphy Brush");
-        waterColorBrush = new JButton("Watercolor Brush");
-        eraser = new JButton("Eraser");
-        pencil = new JButton("Pencil");
+        basicBrush = new JButton();
+        basicBrush.setBackground(Color.WHITE);
+        basicBrush.setIcon(createIcon("/icons/brushes/basic_brush/24x24.png"));
+
+        airBrush = new JButton();
+        airBrush.setBackground(Color.WHITE);
+        airBrush.setIcon(createIcon("/icons/brushes/air_brush/24x24.png"));
+
+        calligraphyBrush = new JButton();
+        calligraphyBrush.setBackground(Color.WHITE);
+        calligraphyBrush.setIcon(createIcon("/icons/brushes/caligraphy/24x24.png"));
+
+        waterColorBrush = new JButton();
+        waterColorBrush.setBackground(Color.WHITE);
+        waterColorBrush.setIcon(createIcon("/icons/brushes/water_brush/24x24.png"));
+
+        eraser = new JButton();
+        eraser.setBackground(Color.WHITE);
+        eraser.setIcon(createIcon("/icons/brushes/eraser/24x24.png"));
+
+        pencil = new JButton();
+        pencil.setBackground(Color.WHITE);
+        pencil.setIcon(createIcon("/icons/brushes/pencil/24x24.png"));
+    }
+
+    private ImageIcon createIcon(String path){
+        URL imgURL = getClass().getResource(path);
+        if (imgURL != null) {
+            return new ImageIcon(imgURL);
+        } else {
+            System.err.println("File not found: " + path);
+            return null;
+        }
     }
 }
