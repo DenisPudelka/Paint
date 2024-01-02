@@ -6,6 +6,7 @@ import org.example.gui.MainFrame;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Getter
@@ -29,14 +30,14 @@ public class LayersManager implements Serializable {
         return newLayer;
     }
 
-    public void removeLayer(int indexLayer){
-        if(indexLayer >= 0 && indexLayer < layers.size()){
-            layers.remove(indexLayer);
-        }
-        if(!layers.isEmpty()){
-            activeLayer = layers.get(layers.size() - 1);
-        }else{
-            activeLayer = null;
+    public void removeLayer(Layer deleteLayer){
+        Iterator<Layer> iterator = layers.iterator();
+        while (iterator.hasNext()){
+            Layer layer = iterator.next();
+            if(layer.getId() == deleteLayer.getId()){
+                iterator.remove();
+                break;
+            }
         }
     }
 

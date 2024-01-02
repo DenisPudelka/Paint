@@ -96,8 +96,6 @@ public class LayersPanel extends JPanel {
         addNewLayer.addActionListener(newLayerJButtonListener);
         RemoveLayerJButton removeLayerJButton = new RemoveLayerJButton(mainFrame);
         removeLayer.addActionListener(removeLayerJButton);
-//        LayerEventLastener layerEventLastener = new LayerEventLastener(mainFrame, layers);
-//        layers.addListSelectionListener(layerEventLastener);
 
         shorcutNewLayerDeleteLayer();
     }
