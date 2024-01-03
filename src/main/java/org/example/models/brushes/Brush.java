@@ -7,13 +7,12 @@ import java.awt.geom.Path2D;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Brush extends GeometryShape {
+public class Brush extends GeometryShape{
     private Path2D path2D;
-    private int brushSize;
+    private BrushStrategy brushStrategy;
 
-    public Brush(int x, int y, int brushSize, Color color) {
-        super(x,y,0, color);
-        this.brushSize = brushSize;
+    public Brush(int x, int y, BrushStrategy brushStrategy) {
+        this.brushStrategy = brushStrategy;
         this.path2D = new Path2D.Float();
         this.path2D.moveTo(x,y);
     }
@@ -22,11 +21,8 @@ public class Brush extends GeometryShape {
         this.path2D.lineTo(x,y);
     }
 
-    @Override
     public void draw(Graphics2D graphics2D) {
-        graphics2D.setColor(getColor());
-        graphics2D.setStroke(new BasicStroke(brushSize, BasicStroke.CAP_ROUND, BasicStroke.JOIN_BEVEL));
-        graphics2D.draw(path2D);
+        brushStrategy.draw(graphics2D, path2D);
     }
 
     @Override

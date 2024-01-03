@@ -3,6 +3,8 @@ package org.example.models.layers;
 import lombok.Getter;
 import lombok.Setter;
 import org.example.gui.MainFrame;
+import org.example.models.brushes.BasicBrushStrategy;
+import org.example.models.brushes.BrushStrategy;
 import org.example.models.helpClasses.ColorFactory;
 import org.example.models.helpClasses.GeometryShape;
 import org.example.models.brushes.Brush;
@@ -75,8 +77,9 @@ public class Layer extends JPanel implements Serializable {
             case CIRCLE:
                 shape = new Circle(x,y,radius, colorFlyweight);
                 break;
-            case BRUSH:
-                shape = new Brush(x,y,radius, colorFlyweight);
+            case BASIC_BRUSH:
+                BrushStrategy basicBrushStrategy = new BasicBrushStrategy(radius, colorFlyweight);
+                shape = new Brush(x,y, basicBrushStrategy);
                 currentBrushStroke = (Brush) shape;
                 break;
             default:
