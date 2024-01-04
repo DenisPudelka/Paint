@@ -40,7 +40,7 @@ public class CanvasListener extends GeneralEventListener {
             Layer currentLayer = mainFrame.getMainCanvas().getLayersManager().getActiveLayer();
             int radius = mainFrame.getMenuPanel().getSliderSizePanel().getSliderSize().getValue();
             if(currentLayer != null){
-                currentLayer.startDrawingShape(Shapes.BASIC_BRUSH, e.getX(), e.getY(), radius);
+                currentLayer.startDrawingShape(mainFrame.getMainCanvas().getCurrentShapeEnums(), e.getX(), e.getY(), radius);
             }
         }else {
             Layer currentLayer = mainFrame.getMainCanvas().getLayersManager().getActiveLayer();

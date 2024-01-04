@@ -3,7 +3,7 @@ package org.example.gui.north_panel;
 import lombok.Getter;
 import lombok.Setter;
 import org.example.gui.MainFrame;
-import org.example.listeners.buttons.BrushButtonListener;
+import org.example.listeners.buttons.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,8 +31,20 @@ public class NorthPanel extends JPanel {
     }
 
     private void initializeListeners() {
-        BrushButtonListener brushButtonListener = new BrushButtonListener(mainFrame);
+        BasicBrushButtonListener brushButtonListener = new BasicBrushButtonListener(mainFrame);
         basicBrush.addActionListener(brushButtonListener);
+
+        AirBrushButtonListener airBrushButtonListener = new AirBrushButtonListener(mainFrame);
+        airBrush.addActionListener(airBrushButtonListener);
+
+        CalligraphyBrushButtonListener calligraphyBrushButtonListener = new CalligraphyBrushButtonListener(mainFrame);
+        calligraphyBrush.addActionListener(calligraphyBrushButtonListener);
+
+        PencilButtonListener pencilButtonListener = new PencilButtonListener(mainFrame);
+        pencil.addActionListener(pencilButtonListener);
+
+        WatercolorBrushButtonListener watercolorBrushButtonListener = new WatercolorBrushButtonListener(mainFrame);
+        waterColorBrush.addActionListener(watercolorBrushButtonListener);
     }
 
     private void initializeUI() {

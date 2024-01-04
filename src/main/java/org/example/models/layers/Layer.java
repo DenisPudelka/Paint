@@ -3,11 +3,9 @@ package org.example.models.layers;
 import lombok.Getter;
 import lombok.Setter;
 import org.example.gui.MainFrame;
-import org.example.models.brushes.BasicBrushStrategy;
-import org.example.models.brushes.BrushStrategy;
+import org.example.models.brushes.*;
 import org.example.models.helpClasses.ColorFactory;
 import org.example.models.helpClasses.GeometryShape;
-import org.example.models.brushes.Brush;
 import org.example.models.enums.Shapes;
 import org.example.models.interfaces.Command;
 import org.example.models.shapes.*;
@@ -80,6 +78,26 @@ public class Layer extends JPanel implements Serializable {
             case BASIC_BRUSH:
                 BrushStrategy basicBrushStrategy = new BasicBrushStrategy(radius, colorFlyweight);
                 shape = new Brush(x,y, basicBrushStrategy);
+                currentBrushStroke = (Brush) shape;
+                break;
+            case AIR_BRUSH:
+                BrushStrategy airBrushStrategy = new AirBrushStrategy(radius, colorFlyweight);
+                shape = new Brush(x,y, airBrushStrategy);
+                currentBrushStroke = (Brush) shape;
+                break;
+            case CALLIGRAPHY_BRUSH:
+                BrushStrategy calligraphyStrategy = new CalligraphyBrushStrategy(radius, colorFlyweight);
+                shape = new Brush(x,y,calligraphyStrategy);
+                currentBrushStroke = (Brush) shape;
+                break;
+            case PENCIL:
+                BrushStrategy pencil = new PencilBrushStrategy(radius, colorFlyweight);
+                shape = new Brush(x,y, pencil);
+                currentBrushStroke = (Brush) shape;
+                break;
+            case WATERCOLOR_BRUSH:
+                BrushStrategy watercolorBrushStrategy = new WatercolorBrushStrategy(radius, colorFlyweight);
+                shape = new Brush(x,y, watercolorBrushStrategy);
                 currentBrushStroke = (Brush) shape;
                 break;
             default:
