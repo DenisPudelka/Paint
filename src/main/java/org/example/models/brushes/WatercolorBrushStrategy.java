@@ -9,7 +9,7 @@ public class WatercolorBrushStrategy implements BrushStrategy{
 
     public WatercolorBrushStrategy(int brushSize, Color color) {
         this.brushSize = brushSize;
-        this.color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 128);
+        this.color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 80);
     }
 
 
