@@ -42,6 +42,7 @@ public class MainFrame extends JFrame {
 
         setExtendedState(JFrame.MAXIMIZED_BOTH);
 
+        setBackground(Color.WHITE);
 
         setMenuPanel();
         setCanvas();

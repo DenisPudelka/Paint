@@ -26,10 +26,13 @@ public class CanvasMain extends JPanel implements Serializable {
     private boolean brushToolOption;
     private transient CommandManager commandManager;
     private PaletteManager paletteManager;
+    //-----------------------------
+    private Rectangle drawingArea;
+    private Color drawingAreaBackgroundColor;
+
 
     public CanvasMain(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
-        setBackground(Color.WHITE);
 
         LayersManager initialLayerManager = new LayersManager(mainFrame);
         this.layersManager = initialLayerManager;
@@ -43,6 +46,8 @@ public class CanvasMain extends JPanel implements Serializable {
         moveOption = false;
         deleteOption = false;
         brushToolOption = false;
+
+        setupDrawingAre();
     }
 
     private void listenersSetup() {
@@ -117,30 +122,40 @@ public class CanvasMain extends JPanel implements Serializable {
             exception.printStackTrace();
         }
     }
-/*
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        Graphics2D graphics2D = (Graphics2D) g;
-        Layer activeLayer = layersManager.getActiveLayer();
-        if(activeLayer != null && activeLayer.isVisible()) {
-            for (Layer layer : this.layersManager.getLayers()) {
-                if (layer.isVisible()) {
-                    layer.paintComponent(graphics2D);
-                }
-            }
-        }
+
+    private void setupDrawingAre(){
+        int initialWidth = 1200;
+        int initialHeight = 600;
+        drawingAreaBackgroundColor = Color.WHITE;
+        drawingArea = new Rectangle(0,0, initialWidth, initialHeight);
     }
-    */
+
+    public void setDrawingAreaSize(int width, int height){
+        drawingArea.setSize(width, height);
+        repaint();
+    }
+
+    public void setDrawingAreaBackgroundColor(Color color) {
+        this.drawingAreaBackgroundColor = color;
+        repaint();
+    }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D graphics2D = (Graphics2D) g;
+
+        graphics2D.setColor(drawingAreaBackgroundColor);
+        graphics2D.fill(drawingArea);
+
+        graphics2D.setClip(drawingArea);
+
         for (Layer layer : this.layersManager.getLayers()) {
             if (layer.isVisible()) {
                 layer.paintComponent(graphics2D);
             }
         }
+
+        graphics2D.dispose();
     }
 }
