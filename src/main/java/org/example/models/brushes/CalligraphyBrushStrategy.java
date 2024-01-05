@@ -1,5 +1,7 @@
 package org.example.models.brushes;
 
+import org.example.models.helpClasses.StrokeFactory;
+
 import java.awt.*;
 import java.awt.geom.Path2D;
 
@@ -15,7 +17,8 @@ public class CalligraphyBrushStrategy implements BrushStrategy{
     @Override
     public void draw(Graphics2D graphics2D, Path2D path2D) {
         graphics2D.setColor(color);
-        graphics2D.setStroke(new BasicStroke(brushSize, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
+        BasicStroke stroke = StrokeFactory.getStroke(brushSize, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND);
+        graphics2D.setStroke(stroke);
         graphics2D.draw(path2D);
     }
 }
