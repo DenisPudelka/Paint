@@ -23,7 +23,8 @@ public class WatercolorBrushButtonListener extends GeneralEventListener {
 
         if(!canvasMain.isBrushToolOption()) {
             canvasMain.toggleBrushOption();
-        }else if (canvasMain.isBrushToolOption()){
+        }
+        if (canvasMain.isBrushToolOption()){
             canvasMain.setCurrentShapeEnums(Shapes.WATERCOLOR_BRUSH);
             southPanel.getLabelDrawingTool().setText("Drawing Tool: Watercolor Brush");
             if (!canvasMain.isBrushToolOption()) {

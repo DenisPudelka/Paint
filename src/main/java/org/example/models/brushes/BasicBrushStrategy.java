@@ -2,7 +2,6 @@ package org.example.models.brushes;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.example.models.helpClasses.GeometryShape;
 import org.example.models.helpClasses.StrokeFactory;
 
 import java.awt.*;

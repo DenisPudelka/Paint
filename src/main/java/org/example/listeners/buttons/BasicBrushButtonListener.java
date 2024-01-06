@@ -5,7 +5,6 @@ import org.example.gui.south_panel.SouthPanel;
 import org.example.listeners.general.GeneralEventListener;
 import org.example.models.enums.Shapes;
 import org.example.models.layers.CanvasMain;
-import org.example.models.layers.Layer;
 
 import java.awt.event.ActionEvent;
 
@@ -22,10 +21,10 @@ public class BasicBrushButtonListener extends GeneralEventListener {
         CanvasMain canvasMain = mainFrame.getMainCanvas();
         SouthPanel southPanel = mainFrame.getMenuPanel().getSouthPanel();
 
-
         if(!canvasMain.isBrushToolOption()) {
             canvasMain.toggleBrushOption();
-        }else if (canvasMain.isBrushToolOption()){
+        }
+        if (canvasMain.isBrushToolOption()){
             canvasMain.setCurrentShapeEnums(Shapes.BASIC_BRUSH);
             southPanel.getLabelDrawingTool().setText("Drawing Tool: Basic Brush");
             if (!canvasMain.isBrushToolOption()) {

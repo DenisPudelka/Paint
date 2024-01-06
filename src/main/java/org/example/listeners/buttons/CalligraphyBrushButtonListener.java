@@ -24,7 +24,8 @@ public class CalligraphyBrushButtonListener extends GeneralEventListener {
 
         if(!canvasMain.isBrushToolOption()) {
             canvasMain.toggleBrushOption();
-        }else if (canvasMain.isBrushToolOption()){
+        }
+        if (canvasMain.isBrushToolOption()){
             canvasMain.setCurrentShapeEnums(Shapes.CALLIGRAPHY_BRUSH);
             southPanel.getLabelDrawingTool().setText("Drawing Tool: Calligraphy Brush");
             if (!canvasMain.isBrushToolOption()) {

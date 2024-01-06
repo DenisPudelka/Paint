@@ -4,8 +4,6 @@ import org.example.models.helpClasses.GeometryShape;
 
 import java.awt.*;
 import java.awt.geom.Path2D;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Brush extends GeometryShape{
     private Path2D path2D;

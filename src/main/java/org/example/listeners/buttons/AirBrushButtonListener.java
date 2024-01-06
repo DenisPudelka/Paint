@@ -22,36 +22,15 @@ public class AirBrushButtonListener extends GeneralEventListener {
         SouthPanel southPanel = mainFrame.getMenuPanel().getSouthPanel();
 
 
-        if(!canvasMain.isBrushToolOption()) {
+        if (!canvasMain.isBrushToolOption()) {
             canvasMain.toggleBrushOption();
-        }else if (canvasMain.isBrushToolOption()){
+        }
+        if (canvasMain.isBrushToolOption()) {
             canvasMain.setCurrentShapeEnums(Shapes.AIR_BRUSH);
             southPanel.getLabelDrawingTool().setText("Drawing Tool: Air Brush");
             if (!canvasMain.isBrushToolOption()) {
                 southPanel.getLabelDrawingTool().setText("Drawing Tool: Shape " + mainFrame.getMenuPanel().getSouthPanel().getComboBoxShapes().getSelectedItem());
             }
-        }
-    }
-
-    private boolean isGeometryShape(Shapes shape) {
-        String n = shape.toString();
-        switch (n) {
-            case "TREE":
-                return true;
-            case "HOUSE":
-                return true;
-            case "TURTLE":
-                return true;
-            case "STAR":
-                return true;
-            case "CIRCLE":
-                return true;
-            case "SQUARE":
-                return true;
-            case "HOURGLASS":
-                return true;
-            default:
-                return false;
         }
     }
 }

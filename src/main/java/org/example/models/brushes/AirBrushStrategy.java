@@ -39,7 +39,7 @@ public class AirBrushStrategy implements BrushStrategy{
         for (int i = 0; i < brushSize * 2; i++) {
             int dx = random.nextInt(radius) - radius / 2;
             int dy = random.nextInt(radius) - radius / 2;
-            graphics2D.fillOval(x + dx, y + dy, brushSize / 8, brushSize / 8); // Adjust dot size
+            graphics2D.fillOval(x + dx, y + dy, brushSize / 8, brushSize / 8);
         }
     }
 }
