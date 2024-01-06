@@ -5,7 +5,6 @@ import lombok.Setter;
 import org.example.gui.MainFrame;
 import org.example.listeners.keyboard.DeleteLayerKeyboardListener;
 import org.example.listeners.keyboard.NewLayerKeyboardAction;
-import org.example.listeners.layer.LayerEventLastener;
 import org.example.listeners.buttons.NewLayerJButtonListener;
 import org.example.listeners.buttons.RemoveLayerJButton;
 import org.example.models.layers.Layer;
@@ -14,18 +13,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 @Getter
 @Setter
 public class LayersPanel extends JPanel {
     private MainFrame mainFrame;
-    //private JList layers;
     private JButton addNewLayer;
     private JButton removeLayer;
     private JPanel buttons;
-    //private DefaultListModel listModel;
     private JPanel layersPanel;
     private JScrollPane scrollPane;
 
@@ -35,15 +30,6 @@ public class LayersPanel extends JPanel {
         listenerSetup();
     }
 
-    /*
-        private void setElement() {
-            this.setLayout(new BorderLayout());
-            setButtons();
-            setLayers();
-            add(buttons, BorderLayout.NORTH);
-            add(scrollPane, BorderLayout.CENTER);
-        }
-     */
     private void setElement() {
         this.setLayout(new BorderLayout());
         setButtons();
@@ -53,21 +39,10 @@ public class LayersPanel extends JPanel {
         add(scrollPane, BorderLayout.CENTER);
     }
 
-    /*
-        private void setLayers() {
-            listModel = new DefaultListModel<>();
-            listModel.addElement("Layer 1");
-            layers = new JList<>(listModel);
-            layers.setSelectedIndex(0);
-
-            scrollPane = new JScrollPane(layers);
-        }
-     */
     private void setLayers() {
         layersPanel = new JPanel();
         layersPanel.setLayout(new BoxLayout(layersPanel, BoxLayout.Y_AXIS));
 
-        // Example of adding layers
         for (Layer layer : mainFrame.getMainCanvas().getLayersManager().getLayers()) {
             LayerPanel layerPanel = new LayerPanel(mainFrame, layer.getId(), layer.isVisible());
             layersPanel.add(layerPanel);

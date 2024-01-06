@@ -15,6 +15,7 @@ public class LayersManager implements Serializable {
     private List<Layer> layers;
     private transient MainFrame mainFrame;
     private Layer activeLayer;
+    private int nextLayerId;
 
     public LayersManager(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
@@ -22,10 +23,11 @@ public class LayersManager implements Serializable {
         Layer initialLayer = new Layer(mainFrame, true, 1);
         this.layers.add(initialLayer);
         this.activeLayer = initialLayer;
+        this.nextLayerId = 2;
     }
 
     public Layer addLayer(){
-        Layer newLayer = new Layer(this.mainFrame, true, layers.size()+1);
+        Layer newLayer = new Layer(this.mainFrame, true, nextLayerId++);
         this.layers.add(newLayer);
         return newLayer;
     }
