@@ -63,40 +63,4 @@ public class ComboBoxColorListener extends GeneralEventListener {
         }
         return Color.BLACK;
     }
-
-    private String getColorString(Object color) {
-        if (color instanceof Color) {
-            int rgb = ((Color) color).getRGB();
-            System.out.println(rgb);
-            switch (rgb) {
-                case -65536: // Red
-                    return "Red";
-                case -16711936: // Green
-                    return "Green";
-                case -16776961: // Blue
-                    return "Blue";
-                case -16777216: // Black
-                    return "Black";
-                case -1:
-                    return "White";
-                case -16711681: // Cyan
-                    return "Cyan";
-                case -65281: // Magenta
-                    return "Magenta";
-                case -256: // Yellow
-                    return "Yellow";
-                case -8453889: // Violet
-                    return "Violet";
-                case -43213: // Orange
-                    return "Orange";
-                case -5952982: // Brown
-                    return "Brown";
-                case -16181: // Pink
-                    return "Pink";
-                default:
-                    return "Black";
-            }
-        }
-        return "Black";
-    }
 }

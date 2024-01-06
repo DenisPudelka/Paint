@@ -132,13 +132,11 @@ public class CanvasMain extends JPanel implements Serializable {
 
     public void setDrawingAreaSize(int width, int height){
         drawingArea.setSize(width, height);
+        setPreferredSize(new Dimension(width, height));
+        revalidate();
         repaint();
     }
 
-    public void setDrawingAreaBackgroundColor(Color color) {
-        this.drawingAreaBackgroundColor = color;
-        repaint();
-    }
 
     @Override
     protected void paintComponent(Graphics g) {
