@@ -24,7 +24,8 @@ public class PencilButtonListener extends GeneralEventListener {
 
         if(!canvasMain.isBrushToolOption()) {
             canvasMain.toggleBrushOption();
-        }else if (canvasMain.isBrushToolOption()){
+        }
+        if (canvasMain.isBrushToolOption()){
             canvasMain.setCurrentShapeEnums(Shapes.PENCIL);
             southPanel.getLabelDrawingTool().setText("Drawing Tool: Pencil Brush");
             if (!canvasMain.isBrushToolOption()) {

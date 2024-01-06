@@ -4,7 +4,6 @@ import org.example.gui.MainFrame;
 import org.example.listeners.general.GeneralEventListener;
 import org.example.models.color_palette.ColorPalette;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 public class PaletteComboBox extends GeneralEventListener {
