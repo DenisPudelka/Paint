@@ -42,7 +42,7 @@ public class SliderSizePanel extends JPanel {
     }
 
     private void sliderSizeSetup(){
-        sliderSize = new JSlider(JSlider.HORIZONTAL, 20,200,50);
+        sliderSize = new JSlider(JSlider.HORIZONTAL, 10,200,30);
         sliderSize.setMajorTickSpacing(10);
         sliderSize.setMinorTickSpacing(2);
         sliderSize.setPaintTicks(true);
