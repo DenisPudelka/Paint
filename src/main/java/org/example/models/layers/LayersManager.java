@@ -54,4 +54,12 @@ public class LayersManager implements Serializable {
     public List<Layer> renderAll(){
         return this.layers;
     }
+
+    public void clearLayers() {
+        layers.clear();
+        nextLayerId = 1;
+        Layer initialLayer = new Layer(mainFrame, true, nextLayerId++);
+        layers.add(initialLayer);
+        activeLayer = initialLayer;
+    }
 }

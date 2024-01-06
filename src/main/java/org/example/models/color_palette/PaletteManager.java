@@ -38,4 +38,11 @@ public class PaletteManager {
     public void setCurrentPallete(ColorPalette colorPalette){
         this.currentColorPalette = colorPalette;
     }
+
+    public void resetToDefaultPalette() {
+        palette.clear();
+        ColorPalette initialPalette = new ColorPalette("Initial Palette");
+        palette.add(initialPalette);
+        currentColorPalette = initialPalette;
+    }
 }

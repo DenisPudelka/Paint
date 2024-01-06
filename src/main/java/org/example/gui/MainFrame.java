@@ -5,6 +5,7 @@ import org.example.gui.east_panel.EastPanel;
 import org.example.gui.north_panel.NorthPanel;
 import org.example.gui.south_panel.MenuPanel;
 import org.example.listeners.keyboard.*;
+import org.example.listeners.menu.AboutAppListener;
 import org.example.listeners.menu.ResizeCanvasListener;
 import org.example.listeners.menu.save_load.LoadListener;
 import org.example.listeners.menu.save_load.SaveListener;
@@ -29,7 +30,6 @@ public class MainFrame extends JFrame {
     private JMenuItem redo;
     private JMenuItem resize;
     private JMenuItem about;
-    private JMenuItem newCanvas;
     private MenuPanel menuPanel;
     private EastPanel eastPanel;
     private NorthPanel northPanel;
@@ -96,7 +96,6 @@ public class MainFrame extends JFrame {
         jMenu = new JMenu("File");
         save = new JMenuItem("Save");
         load = new JMenuItem("Load");
-        newCanvas = new JMenuItem("New");
         about = new JMenuItem("About CanvasCraft Studio");
 
         SaveListener saveListener = new SaveListener(this);
@@ -105,7 +104,9 @@ public class MainFrame extends JFrame {
         LoadListener loadListener = new LoadListener(this);
         load.addActionListener(loadListener);
 
-        jMenu.add(newCanvas);
+        AboutAppListener aboutAppListener = new AboutAppListener(this);
+        about.addActionListener(aboutAppListener);
+
         jMenu.add(save);
         jMenu.add(load);
         jMenu.add(about);
@@ -170,5 +171,9 @@ public class MainFrame extends JFrame {
         ImageIcon icon32 = new ImageIcon(getClass().getResource("/icons/icon32.png"));
         ImageIcon icon64 = new ImageIcon(getClass().getResource("/icons/icon64.png"));
         this.setIconImages(Arrays.asList(icon16.getImage(), icon24.getImage(), icon32.getImage(), icon64.getImage()));
+    }
+
+    public void setNewCanvas(CanvasMain canvasMain){
+        this.mainCanvas = canvasMain;
     }
 }
