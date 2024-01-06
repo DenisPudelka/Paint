@@ -5,7 +5,6 @@ import org.example.listeners.general.GeneralEventListener;
 import org.example.models.layers.Layer;
 
 import java.awt.event.ActionEvent;
-import java.util.List;
 
 public class LayerCheckBox extends GeneralEventListener {
 

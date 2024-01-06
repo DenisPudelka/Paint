@@ -5,7 +5,6 @@ import lombok.Setter;
 import org.example.gui.MainFrame;
 import org.example.listeners.layer.LayerButton;
 import org.example.listeners.layer.LayerCheckBox;
-import org.example.models.layers.Layer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,7 +28,6 @@ public class LayerPanel extends JPanel {
 
     private void setUpComponents() {
         this.setLayout(new FlowLayout(FlowLayout.LEFT));
-
 
         layerButton = new JButton();
         layerButton.setBackground(Color.WHITE);
