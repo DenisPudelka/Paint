@@ -14,16 +14,7 @@ public class NewLayerKeyboardAction extends AbstractAction {
     public NewLayerKeyboardAction(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
     }
-/*
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        mainFrame.getMainCanvas().getLayersManager().addLayer();
-        JList<String> layers = mainFrame.getEastPanel().getLayersPanel().getLayers();
-        DefaultListModel<String> listModel = (DefaultListModel<String>) layers.getModel();
-        listModel.addElement("Layer " + (listModel.getSize() + 1));
-        mainFrame.getMainCanvas().getLayersManager().addLayer();
-    }
-*/
+
     @Override
     public void actionPerformed(ActionEvent e) {
         Layer newLayer = mainFrame.getMainCanvas().getLayersManager().addLayer();

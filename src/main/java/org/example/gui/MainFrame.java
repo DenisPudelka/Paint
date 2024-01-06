@@ -5,10 +5,11 @@ import org.example.gui.east_panel.EastPanel;
 import org.example.gui.north_panel.NorthPanel;
 import org.example.gui.south_panel.MenuPanel;
 import org.example.listeners.keyboard.*;
-import org.example.listeners.save_load.LoadListener;
-import org.example.listeners.save_load.SaveListener;
-import org.example.listeners.undoredo.RedoListener;
-import org.example.listeners.undoredo.UndoListener;
+import org.example.listeners.menu.ResizeCanvasListener;
+import org.example.listeners.menu.save_load.LoadListener;
+import org.example.listeners.menu.save_load.SaveListener;
+import org.example.listeners.menu.undoredo.RedoListener;
+import org.example.listeners.menu.undoredo.UndoListener;
 import org.example.models.layers.CanvasMain;
 
 import javax.swing.*;
@@ -26,10 +27,14 @@ public class MainFrame extends JFrame {
     private JMenuItem load;
     private JMenuItem undo;
     private JMenuItem redo;
+    private JMenuItem resize;
+    private JMenuItem about;
+    private JMenuItem newCanvas;
     private MenuPanel menuPanel;
     private EastPanel eastPanel;
     private NorthPanel northPanel;
     private CanvasMain mainCanvas;
+    private JScrollPane scrollPane;
 
     public MainFrame() throws HeadlessException {
         super("CanvasCraft Studio");
@@ -65,7 +70,15 @@ public class MainFrame extends JFrame {
 
     private void setCanvas(){
         mainCanvas = new CanvasMain(this);
-        add(mainCanvas, BorderLayout.CENTER);
+
+        mainCanvas.setPreferredSize(new Dimension(1200,600));
+
+        scrollPane = new JScrollPane(mainCanvas);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setBorder(null);
+
+        add(scrollPane, BorderLayout.CENTER);
     }
 
     private void setEastPanel(){
@@ -79,11 +92,12 @@ public class MainFrame extends JFrame {
     }
 
     private void jMenuSetup(){
-        // create JMenuBar
         jMenuBar = new JMenuBar();
         jMenu = new JMenu("File");
         save = new JMenuItem("Save");
         load = new JMenuItem("Load");
+        newCanvas = new JMenuItem("New");
+        about = new JMenuItem("About CanvasCraft Studio");
 
         SaveListener saveListener = new SaveListener(this);
         save.addActionListener(saveListener);
@@ -91,8 +105,10 @@ public class MainFrame extends JFrame {
         LoadListener loadListener = new LoadListener(this);
         load.addActionListener(loadListener);
 
+        jMenu.add(newCanvas);
         jMenu.add(save);
         jMenu.add(load);
+        jMenu.add(about);
         jMenuBar.add(jMenu);
         this.setJMenuBar(jMenuBar);
 
@@ -103,14 +119,18 @@ public class MainFrame extends JFrame {
         edit = new JMenu("Edit");
         undo = new JMenuItem("Undo");
         redo = new JMenuItem("Redo");
+        resize = new JMenuItem("Resize");
 
         UndoListener undoListener = new UndoListener(this);
         undo.addActionListener(undoListener);
         RedoListener redoListener = new RedoListener(this);
         redo.addActionListener(redoListener);
+        ResizeCanvasListener resizeCanvasListener = new ResizeCanvasListener(this);
+        resize.addActionListener(resizeCanvasListener);
 
         edit.add(undo);
         edit.add(redo);
+        edit.add(resize);
         this.jMenuBar.add(edit);
 
         shortcutUndoRedo();
