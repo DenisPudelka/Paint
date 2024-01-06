@@ -9,7 +9,6 @@ import java.awt.event.MouseWheelEvent;
 
 public class JSliderSizeListener extends GeneralEventListener {
     private MainFrame mainFrame;
-    private int previousValue;
 
     public JSliderSizeListener(MainFrame mainFrame) {
         this.mainFrame = mainFrame;

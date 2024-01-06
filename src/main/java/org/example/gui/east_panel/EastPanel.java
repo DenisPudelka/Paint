@@ -21,10 +21,7 @@ public class EastPanel extends JPanel {
     private void componentsSetup() {
         BorderLayout borderLayout = new BorderLayout();
         this.setLayout(borderLayout);
-
         layersPanel = new LayersPanel(mainFrame);
-
-
         this.add(layersPanel, BorderLayout.CENTER);
     }
 }
