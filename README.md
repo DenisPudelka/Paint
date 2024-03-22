@@ -8,7 +8,7 @@
 ## Introduction
 Welcome to the Java Paint Application, a digital painting tool developed using Java Swing and AWT. This application is a culmination of the key concepts and skills acquired from an Object-Oriented Programming course, encompassing Java fundamentals, Swing, and essential design patterns. The project is a testament to practical application of theoretical knowledge in software development.
 
-![Database Schema](docs/images/paintapp_v_2.PNG)
+![Database Schema](docs/images/paintapp_v_2.png)
 
 ## Features
 - **Brush Tool:** Advanced brush tool for intricate freehand drawing.
